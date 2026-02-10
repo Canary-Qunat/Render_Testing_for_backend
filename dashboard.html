@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Canary Trading System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>🐤 Canary Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <span id="user-name" class="user-name">Loading...</span>
+                <button class="refresh-btn" onclick="refreshData()">🔄 Refresh</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading your portfolio...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error-message" style="display: none;">
+            <p id="error-text"></p>
+            <button onclick="window.location.href='index.html'">Return to Login</button>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content" style="display: none;">
+            <!-- Portfolio Summary -->
+            <section class="summary-section">
+                <div class="summary-card">
+                    <div class="card-icon">💼</div>
+                    <div class="card-content">
+                        <h3>Total Portfolio Value</h3>
+                        <p class="value" id="total-value">₹0.00</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-content">
+                        <h3>Total P&L</h3>
+                        <p class="value" id="total-pnl">₹0.00</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-content">
+                        <h3>Holdings</h3>
+                        <p class="value" id="holdings-count">0</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-content">
+                        <h3>Positions</h3>
+                        <p class="value" id="positions-count">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Holdings Section -->
+            <section class="data-section">
+                <h2>📊 Holdings</h2>
+                <div class="table-container">
+                    <table id="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Quantity</th>
+                                <th>Avg Price</th>
+                                <th>Last Price</th>
+                                <th>Current Value</th>
+                                <th>P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-body">
+                            <tr>
+                                <td colspan="6" class="no-data">No holdings found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Positions Section -->
+            <section class="data-section">
+                <h2>⚡ Positions</h2>
+                <div class="table-container">
+                    <table id="positions-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Quantity</th>
+                                <th>Avg Price</th>
+                                <th>Last Price</th>
+                                <th>P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="positions-body">
+                            <tr>
+                                <td colspan="5" class="no-data">No positions found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

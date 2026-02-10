@@ -1,0 +1,13 @@
+pandas
+requests
+gunicorn
+fastapi[standard]
+uvicorn
+jinja2
+python-dotenv
+kiteconnect
+psycopg2-binary
+
+
+
+
