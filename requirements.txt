@@ -7,7 +7,7 @@ jinja2
 python-dotenv
 kiteconnect
 psycopg2-binary
-
+sqlalchemy
 
 
 
